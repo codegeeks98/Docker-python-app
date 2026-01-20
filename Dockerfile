@@ -1,24 +1,15 @@
-# Base image (OS)
-
-FROM python:3.9-slim
-
-# Working directory
+#Setting the Base Image
+From python:3.9-slim
 
 WORKDIR /app
 
-# Copy src code to container
-
 COPY . .
-
-# Run the build commands
+#Copying all the code files from our host to working directory that is /app
 
 RUN pip install -r requirements.txt
-
-# expose port 80
+#It will install all the reuired libararies to build a python flask app
 
 EXPOSE 80
-
-# serve the app / run the app (keep it running)
 
 CMD ["python","run.py"]
 
